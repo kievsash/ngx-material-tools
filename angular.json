@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -93,6 +94,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -124,6 +126,42 @@
           }
         }
       }
-    }},
+    },
+    "ngx-material-tools": {
+      "projectType": "library",
+      "root": "projects/ngx-material-tools",
+      "sourceRoot": "projects/ngx-material-tools/src",
+      "prefix": "",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-material-tools/tsconfig.lib.json",
+            "project": "projects/ngx-material-tools/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-material-tools/src/test.ts",
+            "tsConfig": "projects/ngx-material-tools/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-material-tools/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-material-tools/tsconfig.lib.json",
+              "projects/ngx-material-tools/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "ngx-material-tools-demo"
 }

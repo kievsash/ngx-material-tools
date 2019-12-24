@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-material-tools": [
+        "dist/ngx-material-tools"
+      ],
+      "ngx-material-tools/*": [
+        "dist/ngx-material-tools/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
