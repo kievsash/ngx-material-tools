@@ -20,6 +20,7 @@ export class MatInputCommifiedDirective {
 
   constructor(private elementRef: ElementRef<HTMLInputElement>,
   ) {
+    console.log('created directive');
   }
 
 
@@ -43,7 +44,7 @@ export class MatInputCommifiedDirective {
 
   private unFormatValue() {
     const value = this.elementRef.nativeElement.value;
-    this._value = value.replace(/([^0-9.])/g, '');
+    this._value = value.replace(/[^\d.-]/g, '');
     if (value) {
       this.elementRef.nativeElement.value = this._value;
     } else {

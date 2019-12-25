@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {NgxMaterialToolsModule} from '../../projects/ngx-material-tools/src/lib/ngx-material-tools.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,10 @@ import {MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/materi
     BrowserAnimationsModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule,
+    NgxMaterialToolsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

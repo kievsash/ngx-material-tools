@@ -3,9 +3,20 @@
 </header>
 
 <mat-card>
-  <mat-form-field appearance="outline">
-    <mat-label>Deposit Amount</mat-label>
-    <input matInput matInputCommified type="text">
-  </mat-form-field>
+  <form [formGroup]="myForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Deposit Amount</mat-label>
+      <input matInput
+             matInputCommified
+             formControlName="deposit"
+             type="text"/>
+    </mat-form-field>
+  </form>
+  <button [disabled]="myForm.invalid"
+          mat-raised-button
+          color="primary"
+          (click)="onSubmit()"
+  >Submit
+  </button>
 </mat-card>
 
