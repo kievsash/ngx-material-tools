@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4500",
     "build": "ng build",
+    "build:ngx-material-tools": "ng build ngx-material-tools && npm run copy:lib:dist",
+    "copy:lib:dist": "cp -r ./projects/ngx-material-tools/src ./dist/ngx-material-tools/src",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
