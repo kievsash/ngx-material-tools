@@ -1,27 +1,71 @@
 # NgxMaterialToolsDemo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.14.
+#### This is a set of custom directives lib for Angular Materials.
 
-## Development server
+For now it contains only *matInputCommified* directive to be used with standard material matInput.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to use
 
-## Code scaffolding
+### Install
+```
+npm i ngx-material-tools
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Import module
 
-## Build
+```
+...
+import {NgxMaterialToolsModule} from 'ngx-material-tools';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+@NgModule({
+...
+  imports: [
+...
+    NgxMaterialToolsModule
+  ],
+...
+})
+export class AppModule { }
+```
 
-## Running unit tests
+### Use directive together with matInput in Angular Reactive Forms 
+```
+  <form [formGroup]="myForm" style="margin-top: 20px">
+    <mat-form-field appearance="outline">
+      <mat-label>Deposit Amount</mat-label>
+      <input matInput
+             matInputCommified
+             formControlName="deposit"
+             type="text"/>
+    </mat-form-field>
+  </form>
+>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Start demo project
 
-## Running end-to-end tests
+Clone this repo and do install
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+npm install
 
-## Further help
+ng serve
+```
+![demo app](src/inputExampleGif2.gif)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+Did you Like this lib? Follow me on [Twitter](https://twitter.com/El_Extremal) for more Angular and RxJS staff!
+
+Need a mentorship for Angular and RxJS? Find me on [codementor.io](https://www.codementor.io/alexanderposhtaruk)
+
+Take a look at my video-course on Udemy/PacktPub:
+* ["Hands-on RxJS for Web Development"](https://www.packtpub.com/web-development/hands-rxjs-web-development-video)
+* ["RxJS unit testing for Angular apps"](https://www.udemy.com/course/rxjs-unit-testing-in-angular-application-the-whole-picture/)
+
+Check my Youtube video-blog ["Angular can waste your time!"](https://www.youtube.com/playlist?list=PLNadw4d8-KMVSOffiYBuOlzvF38sO9pdu)
+
+
+
+*This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.14.
+
+
