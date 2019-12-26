@@ -28,4 +28,13 @@ export class AppComponent {
   onChangeValue() {
     this.myForm.get('deposit').setValue(100000);
   }
+
+  toggleDisable() {
+    const control = this.myForm.get('deposit');
+    if (control.disabled) {
+      control.enable();
+    } else {
+      control.disable();
+    }
+  }
 }
