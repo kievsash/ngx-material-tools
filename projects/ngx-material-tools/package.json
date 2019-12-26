@@ -1,6 +1,28 @@
 {
   "name": "ngx-material-tools",
-  "version": "0.1.1",
+  "version": "0.1.2",
+  "license": "MIT",
+  "author": {
+    "name": "Oleksandr Poshtaruk",
+    "email": "kievsash@ukr.net",
+    "url": "https://github.com/kievsash"
+  },
+  "homepage": "https://github.com/kievsash/ngx-material-tools",
+  "bugs": "https://github.com/kievsash/ngx-material-tools/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kievsash/ngx-material-tools.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
+  "keywords": [
+    "material",
+    "commified",
+    "thousands",
+    "input"
+  ],
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"
