@@ -24,4 +24,8 @@ export class AppComponent {
   onSubmit() {
     console.log('form ', this.myForm, this.myForm.get('deposit'));
   }
+
+  onChangeValue() {
+    this.myForm.get('deposit').setValue(100000);
+  }
 }

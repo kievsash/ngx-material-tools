@@ -3,7 +3,10 @@
 </header>
 
 <mat-card>
-  <form [formGroup]="myForm">
+  <div>Min: 1</div>
+  <div>Max: 1,000,000</div>
+  <div>Validity: {{myForm.valid}}</div>
+  <form [formGroup]="myForm" style="margin-top: 20px">
     <mat-form-field appearance="outline">
       <mat-label>Deposit Amount</mat-label>
       <input matInput
@@ -16,7 +19,11 @@
           mat-raised-button
           color="primary"
           (click)="onSubmit()"
-  >Submit
-  </button>
+  >Submit</button>
+  <button mat-raised-button
+          style="margin-left: 20px;"
+          color="secondary"
+          (click)="onChangeValue()"
+  >Assign 100000</button>
 </mat-card>
 
