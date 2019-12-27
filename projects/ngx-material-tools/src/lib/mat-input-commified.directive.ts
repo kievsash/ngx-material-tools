@@ -74,7 +74,7 @@ export class MatInputCommifiedDirective {
   writeValue(value: any) {
     this._value = value;
     this.formatValue(this._value);
-    this._onChange(this._value);
+    // this._onChange(this._value);
   }
 
   registerOnChange(fn: (value: any) => void) {
