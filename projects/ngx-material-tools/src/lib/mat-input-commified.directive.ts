@@ -1,26 +1,22 @@
-import {Directive, ElementRef, forwardRef, HostListener, Input} from '@angular/core';
+import {Directive, ElementRef, HostListener, Input, PipeTransform} from '@angular/core';
 import {MAT_INPUT_VALUE_ACCESSOR} from '@angular/material';
-import {NG_VALUE_ACCESSOR} from '@angular/forms';
 import {numberWithCommas} from './helpers';
 
 @Directive({
   selector: 'input[matInputCommified]',
   providers: [
-    {provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: MatInputCommifiedDirective},
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => MatInputCommifiedDirective),
-      multi: true,
-    }
+    {provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: MatInputCommifiedDirective}
   ]
 })
 export class MatInputCommifiedDirective {
   // tslint:disable-next-line:variable-name
   private _value: string | null;
+  @Input() formatPipe: PipeTransform;
+  @Input() formatPipeArgs: any[] = [];
 
-  constructor(private elementRef: ElementRef<HTMLInputElement>,
-  ) {
+  constructor(private elementRef: ElementRef<HTMLInputElement>, public ngControl: NgControl) {
     console.log('created directive');
+    ngControl.valueAccessor = this; // Remove NG_VALUE_ACCESSOR from providers to remove cyclic dependency with NgControl
   }
 
 
@@ -34,15 +30,22 @@ export class MatInputCommifiedDirective {
     this.formatValue(value);
   }
 
-  private formatValue(value: string | null) {
+  private formatValue(value: string | null): void {
     if (value !== null) {
-      this.elementRef.nativeElement.value = numberWithCommas(value);
+      if (this.formatPipe) {
+        this.elementRef.nativeElement.value = this.formatPipe.transform(value, ...this.formatPipeArgs);
+      } else {
+        this.elementRef.nativeElement.value = numberWithCommas(value);
+      }
     } else {
       this.elementRef.nativeElement.value = '';
     }
+    if (this.ngControl) {
+      this.ngControl.control?.markAsTouched(); // Touch input to allow MatFormField to show errors properly
+    }
   }
 
-  private unFormatValue() {
+  private unFormatValue(): void {
     const value = this.elementRef.nativeElement.value;
     this._value = value.replace(/[^\d.-]/g, '');
     if (value) {
@@ -53,35 +56,35 @@ export class MatInputCommifiedDirective {
   }
 
   @HostListener('input', ['$event.target.value'])
-  onInput(value) {
+  onInput(value): void {
     this._value = value.replace(/[^\d.-]/g, '');
     this._onChange(this._value);
   }
 
   @HostListener('blur')
-  _onBlur() {
+  _onBlur(): void {
     this.formatValue(this._value);
   }
 
   @HostListener('focus')
-  onFocus() {
+  onFocus(): void {
     this.unFormatValue();
   }
 
   _onChange(value: any): void {
   }
 
-  writeValue(value: any) {
+  writeValue(value: any): void {
     this._value = value;
     this.formatValue(this._value);
     // this._onChange(this._value);
   }
 
-  registerOnChange(fn: (value: any) => void) {
+  registerOnChange(fn: (value: any) => void): void {
     this._onChange = fn;
   }
 
-  registerOnTouched() {
+  registerOnTouched(): void {
   }
 
 
