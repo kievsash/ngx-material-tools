@@ -1,6 +1,6 @@
 {
   "name": "ngx-material-tools",
-  "version": "0.1.4",
+  "version": "14.0.0",
   "license": "MIT",
   "author": {
     "name": "Oleksandr Poshtaruk",
@@ -24,7 +24,7 @@
     "input"
   ],
   "peerDependencies": {
-    "@angular/common": "^8.2.14",
-    "@angular/core": "^8.2.14"
+    "@angular/common": "^14.2.10",
+    "@angular/core": "^14.2.10"
   }
 }
