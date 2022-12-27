@@ -26,7 +26,7 @@ export class AppComponent {
   }
 
   onChangeValue() {
-    this.myForm.get('deposit').setValue(100000);
+    this.myForm.get('deposit').setValue("100000");
   }
 
   toggleDisable() {
