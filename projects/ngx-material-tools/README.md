@@ -52,7 +52,7 @@ npm install
 ng serve
 ```
 ![demo app](src/inputExampleGif2.gif)
-
+[Stackblitz](https://stackblitz.com/edit/angular-commified-mat-input)
 
 Did you Like this lib? Follow me on [Twitter](https://twitter.com/El_Extremal) for more Angular and RxJS staff!
 
