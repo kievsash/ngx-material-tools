@@ -1,25 +1,23 @@
 import {Directive, ElementRef, forwardRef, HostListener, Input} from '@angular/core';
 import {MAT_INPUT_VALUE_ACCESSOR} from '@angular/material/input';
-import {NG_VALUE_ACCESSOR} from '@angular/forms';
+import {NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
 import {numberWithCommas} from './helpers';
 
 @Directive({
   selector: 'input[matInputCommified]',
   providers: [
     {provide: MAT_INPUT_VALUE_ACCESSOR, useExisting: MatInputCommifiedDirective},
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => MatInputCommifiedDirective),
-      multi: true,
-    }
   ]
 })
 export class MatInputCommifiedDirective {
   // tslint:disable-next-line:variable-name
   private _value: string | null;
 
-  constructor(private elementRef: ElementRef<HTMLInputElement>,
+  constructor(
+    private elementRef: ElementRef<HTMLInputElement>,
+    public ngControl: NgControl
   ) {
+    ngControl.valueAccessor = this; // Remove NG_VALUE_ACCESSOR from providers to remove cyclic dependency with NgControl
   }
 
 
@@ -38,6 +36,9 @@ export class MatInputCommifiedDirective {
       this.elementRef.nativeElement.value = numberWithCommas(value);
     } else {
       this.elementRef.nativeElement.value = '';
+    }
+    if (this.ngControl) {
+      this.ngControl.control?.markAsTouched(); // Touch input to allow MatFormField to show errors properly
     }
   }
 
