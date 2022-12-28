@@ -1,5 +1,7 @@
 # NgxMaterialToolsDemo
 
+Updated to Angular 14
+
 #### This is a set of custom directives lib for Angular Materials.
 
 For now it contains only *matInputCommified* directive to be used with standard material matInput.
