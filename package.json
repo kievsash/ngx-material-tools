@@ -1,6 +1,6 @@
 {
   "name": "ngx-material-tools-demo",
-  "version": "14.1.0",
+  "version": "14.1.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4500",
