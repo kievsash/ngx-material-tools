@@ -33,7 +33,7 @@ export class AppModule { }
 
 ### matInputCommified directive
 #### Use matInputCommified directive together with matInput in Angular Reactive Forms 
-```
+```angular2html
   <form [formGroup]="myForm" style="margin-top: 20px">
     <mat-form-field appearance="outline">
       <mat-label>Deposit Amount</mat-label>
