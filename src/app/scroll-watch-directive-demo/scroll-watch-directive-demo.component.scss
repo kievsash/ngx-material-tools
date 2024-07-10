@@ -1,0 +1,35 @@
+.buttons {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  button {
+    margin-left: 20px;
+  }
+}
+
+.code {
+  display: block;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin-bottom: 10px;
+}
+.content {
+  padding: 20px;
+  //box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  height: 200px;
+
+  .header {
+    text-align: right;
+    border-bottom: 1px solid silver;
+    margin-bottom: 2px;
+    padding-bottom: 2px
+  }
+
+  .scrollable {
+    text-align: justify;
+    overflow: auto;
+    height: 180px;
+  }
+}
+

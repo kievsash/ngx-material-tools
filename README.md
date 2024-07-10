@@ -8,12 +8,12 @@ For now it contains only *matInputCommified* directive to be used with standard 
 
 ## How to use
 
-### Install
+#### Install package
 ```
 npm i ngx-material-tools
 ```
 
-### Import module
+#### Import module
 
 ```
 ...
@@ -29,8 +29,10 @@ import {NgxMaterialToolsModule} from 'ngx-material-tools';
 })
 export class AppModule { }
 ```
+<br/>
 
-### Use directive together with matInput in Angular Reactive Forms 
+### matInputCommified directive
+#### Use matInputCommified directive together with matInput in Angular Reactive Forms 
 ```
   <form [formGroup]="myForm" style="margin-top: 20px">
     <mat-form-field appearance="outline">
@@ -44,16 +46,84 @@ export class AppModule { }
 >
 ```
 
+#### matInputCommified demo
+![demo app](src/inputExampleGif2.gif)
+
+<br/>
+
+### scrollWatch directive
+It allows to monitor if scroll appear on specific element (and change other elements layout respectively if needed).
+In particular: sometimes if scroll appears some elements alignment may need change (for examples labels above the container may be shifted to compensate scrollBar width)
+
+```angular2html
+<code class="code">
+  Scroll status: {{scrollable.data | json}}
+</code>
+<section class="content" >
+  <div class="header" [style.margin-right.px]="scrollable?.data?.verticalScrollBarWidth">
+    Right aligned label
+  </div>
+  <div class="scrollable" scrollWatch #scrollable="scrollDetails" >
+    <div class="some-long-text" *ngIf="showHideLongContent">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+    </div>
+  </div>
+</section>
+```
+
+1. Put attribute directive _scrollWatch_ directive on specific html element
+2. assign directive instance axported as _scrollDetails_ to any ref variable (#scrollable="scrollDetails")
+3. Use that variable in scope of template (for example to correct margin of element above)
+
+#### scrollWatch directive demo
+![demo app](src/scrollWatch-demo.gif)
+
+<br/>
+
+### containsScroll pipe
+You can also control specific container scrollBar visibility to a _containsScroll_ pipe.
+It returns Observable which emit scrollBar data, so use  Angular _async_ to read them.
+
+But I recommend to use _scrollWatch_ directive since each time you use pipe in template - new instance of MutationObserver is created.
+
+```angular2html
+<section class="content" >
+
+  Scroll status: {{(scrollable | containsScroll | async) | json}}
+
+  <div class="header" [style.margin-right.px]="(scrollable | containsScroll | async)?.verticalScrollBarWidth || 0">
+    Right aligned label
+  </div>
+  <div class="scrollable" #scrollable >
+    <div class="some-long-text" *ngIf="showLongContent">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+    </div>
+  </div>
+</section>
+```
+Check demo app for details
+
 ### Start demo project
 
-Clone this repo and do install
+Clone this repo and do npm install
 
 ```
 npm install
 
 ng serve
 ```
-![demo app](src/inputExampleGif2.gif)
+Go to http://localhost:4200
+
+
+
 
 
 Did you Like this lib? Follow me on [Twitter](https://twitter.com/El_Extremal) for more Angular and RxJS staff!

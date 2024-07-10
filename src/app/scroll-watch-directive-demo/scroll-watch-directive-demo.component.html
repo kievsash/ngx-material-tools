@@ -1,0 +1,36 @@
+<h3>scrollWatch directive demo</h3>
+<div class="buttons">
+  <button (click)="toggleVertScroll()">Toggle vertical Scroll</button>
+</div>
+<div class="buttons">
+  <button (click)="toggleHorScroll()">Toggle horizontal Scroll</button>
+</div>
+<code class="code">
+  Scroll status: {{scrollable.data | json}}
+</code>
+<section class="content" >
+  <div class="header" [style.margin-right.px]="scrollable?.data?.verticalScrollBarWidth">
+    Right aligned label
+  </div>
+  <div class="scrollable" scrollWatch #scrollable="scrollDetails" >
+
+    <div [style.width]="addWidth">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?</div>
+    <div class="some-long-text" *ngIf="showContent">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+    </div>
+  </div>
+</section>
+<h3>Example of usage</h3>
+<pre>
+<code class="code">
+  {{codeExample}}
+</code>
+</pre>

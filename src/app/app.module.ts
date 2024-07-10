@@ -9,10 +9,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input';
 import { NgxMaterialToolsModule } from '../../projects/ngx-material-tools/src/lib/ngx-material-tools.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import {ContainsScrollPipeDemoComponent} from './contains-scroll-pipe-demo/contains-scroll-pipe-demo.component';
+import {AppRoutingModule} from './app.routing-module';
+import {CommifiedInputDemoComponent} from './commified-input/commified-input-demo.component';
+import {ScrollWatchDirectiveDemoComponent} from './scroll-watch-directive-demo/scroll-watch-directive-demo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContainsScrollPipeDemoComponent,
+    CommifiedInputDemoComponent,
+    ScrollWatchDirectiveDemoComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatButtonModule,
     NgxMaterialToolsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

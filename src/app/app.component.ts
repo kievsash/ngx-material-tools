@@ -7,34 +7,9 @@ import {FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngx-material-tools-demo';
+  title = 'ngx-material-tools demo';
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor() {
   }
 
-  myForm = this.formBuilder.group({
-    deposit: ['', [
-      Validators.required,
-      Validators.min(1),
-      Validators.max(1000000)
-    ]
-    ],
-  });
-
-  onSubmit() {
-    console.log('form ', this.myForm, this.myForm.get('deposit'));
-  }
-
-  onChangeValue() {
-    this.myForm.get('deposit').setValue("100000");
-  }
-
-  toggleDisable() {
-    const control = this.myForm.get('deposit');
-    if (control.disabled) {
-      control.enable();
-    } else {
-      control.disable();
-    }
-  }
 }

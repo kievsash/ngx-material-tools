@@ -1,0 +1,32 @@
+<p>Commified input demo</p>
+
+<mat-card>
+  <div>Min: 1</div>
+  <div>Max: 1,000,000</div>
+  <div>Validity: {{myForm.valid}}</div>
+  <form [formGroup]="myForm" style="margin-top: 20px">
+    <mat-form-field appearance="outline">
+      <mat-label>Deposit Amount</mat-label>
+      <input matInput
+             matInputCommified
+             formControlName="deposit"
+             type="text"/>
+    </mat-form-field>
+  </form>
+  <button [disabled]="myForm.invalid"
+          mat-raised-button
+          color="primary"
+          (click)="onSubmit()"
+  >Submit</button>
+  <button mat-raised-button
+          style="margin-left: 20px;"
+          color="secondary"
+          (click)="onChangeValue()"
+  >Assign 100000</button>
+  <button mat-raised-button
+          style="margin-left: 20px;"
+          color="secondary"
+          (click)="toggleDisable()"
+  >Enable/Disable</button>
+</mat-card>
+

@@ -1,7 +1,7 @@
 import {Directive, ElementRef, forwardRef, HostListener, Input} from '@angular/core';
 import {MAT_INPUT_VALUE_ACCESSOR} from '@angular/material/input';
 import {NG_VALUE_ACCESSOR, NgControl} from '@angular/forms';
-import {numberWithCommas} from './helpers';
+import {numberWithCommas} from '../../helpers/helpers';
 
 @Directive({
   selector: 'input[matInputCommified]',

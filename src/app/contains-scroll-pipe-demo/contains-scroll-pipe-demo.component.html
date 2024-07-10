@@ -1,0 +1,30 @@
+<h3>containsScroll pipe demo</h3>
+<div class="buttons">
+  <button (click)="addScroll()">Add Scroll</button>
+  <button (click)="removeScroll()">Remove scroll</button>
+</div>
+<section class="content" >
+
+  Scroll status: {{(scrollable | containsScroll | async) | json}}
+
+  <div class="header" [style.margin-right.px]="(scrollable | containsScroll | async)?.verticalScrollBarWidth || 0">
+    Right aligned label
+  </div>
+  <div class="scrollable" #scrollable >
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+    <div class="some-long-text" *ngIf="showContent">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, amet aperiam asperiores, harum illo in iure nam non odit pariatur perferendis placeat quia quis reiciendis, rem saepe sequi temporibus unde?
+    </div>
+  </div>
+</section>
+
+<h3>Example of usage</h3>
+<pre>
+<code class="code">
+  {{codeExample}}
+</code>
+</pre>

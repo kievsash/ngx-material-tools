@@ -1,7 +1,9 @@
-header {
-  margin-left: 20px;
-}
+.container {
+  margin: 20px;
 
-.mat-card {
-  margin: 0 20px;
+  menu {
+    a {
+      padding-left: 20px;
+    }
+  }
 }
