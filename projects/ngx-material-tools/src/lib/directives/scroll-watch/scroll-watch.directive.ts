@@ -38,9 +38,6 @@ export class ScrollWatchDirective implements OnInit, OnDestroy {
     const hasVerticalScroll = !!elem && elem.scrollHeight > elem.clientHeight;
     const verticalScrollBarWidth = elem.offsetWidth - elem.clientWidth;
     const horizontalScrollBarWidth = elem.offsetHeight - elem.clientHeight;
-    console.log('elem.scrollWidth', elem.scrollWidth);
-    console.log('elem.clientWidth', elem.clientWidth)
-    console.log('elem.offsetWidth', elem.offsetWidth)
 
     return {hasHorizontalScroll, hasVerticalScroll, verticalScrollBarWidth, horizontalScrollBarWidth};
   }
