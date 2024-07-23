@@ -82,6 +82,15 @@ In particular: sometimes if scroll appears some elements alignment may need chan
 #### scrollWatch directive demo
 ![demo app](src/scrollWatch-demo.gif)
 
+Provided data interface
+```typescript
+export interface ContainsScrollEvent {
+  hasHorizontalScroll: boolean;
+  hasVerticalScroll: boolean;
+  verticalScrollBarWidth: number;
+  horizontalScrollBarWidth: number;
+};
+```
 <br/>
 
 ### containsScroll pipe

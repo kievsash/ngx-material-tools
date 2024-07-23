@@ -1,12 +1,13 @@
 {
   "name": "ngx-material-tools-demo",
-  "version": "14.1.1",
+  "version": "14.1.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4500",
     "build": "ng build",
     "build:ngx-material-tools": "ng build ngx-material-tools && npm run copy:lib:dist",
     "copy:lib:dist": "cp -r ./projects/ngx-material-tools/src ./dist/ngx-material-tools/src",
+    "publish": "npm publish ./dist/ngx-material-tools/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

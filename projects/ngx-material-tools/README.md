@@ -32,17 +32,17 @@ export class AppModule { }
 <br/>
 
 ### matInputCommified directive
-#### Use matInputCommified directive together with matInput in Angular Reactive Forms 
+#### Use matInputCommified directive together with matInput in Angular Reactive Forms
 ```angular2html
   <form [formGroup]="myForm" style="margin-top: 20px">
-    <mat-form-field appearance="outline">
-      <mat-label>Deposit Amount</mat-label>
-      <input matInput
-             matInputCommified
-             formControlName="deposit"
-             type="text"/>
-    </mat-form-field>
-  </form>
+  <mat-form-field appearance="outline">
+    <mat-label>Deposit Amount</mat-label>
+    <input matInput
+           matInputCommified
+           formControlName="deposit"
+           type="text"/>
+  </mat-form-field>
+</form>
 >
 ```
 
@@ -82,6 +82,15 @@ In particular: sometimes if scroll appears some elements alignment may need chan
 #### scrollWatch directive demo
 ![demo app](src/scrollWatch-demo.gif)
 
+Provided data interface
+```typescript
+export interface ContainsScrollEvent {
+  hasHorizontalScroll: boolean;
+  hasVerticalScroll: boolean;
+  verticalScrollBarWidth: number;
+  horizontalScrollBarWidth: number;
+};
+```
 <br/>
 
 ### containsScroll pipe
